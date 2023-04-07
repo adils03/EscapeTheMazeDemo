@@ -20,7 +20,7 @@ MonoBehaviour:
   image: {fileID: -708246658, guid: 12d074ed9b31ef645805fcf6c00f4789, type: 3}
   foodAmount: 0
   waterAmount: 0
-  healthAmount: 10
+  healthAmount: -11
   sanityAmount: 0
   fireFuelAmount: 0
   sleepAmount: 0
