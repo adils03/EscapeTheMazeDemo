@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed=5f;
     private Vector3 origPos,targetPos;
     private bool isMoving;
+    GameObject smoke;
     [HideInInspector]public bool isCanMoveUp=false;
     [HideInInspector]public bool iscanMoveRight=false;
     [HideInInspector]public bool isCanMoveLeft=false;
@@ -21,7 +22,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetKey((KeyCode.W))&&!isMoving&&isCanMoveUp){
+       movement();
+    }
+
+
+    void movement(){
+         if(Input.GetKey((KeyCode.W))&&!isMoving&&isCanMoveUp){
             StartCoroutine(MovePlayer(Vector3.up));
         }
         if(Input.GetKey((KeyCode.A))&&!isMoving&&isCanMoveLeft){
@@ -34,9 +40,6 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(MovePlayer(Vector3.down));
         }
     }
-
-
-
 
     IEnumerator MovePlayer(Vector3 direction){
         
@@ -66,6 +69,11 @@ public class PlayerMovement : MonoBehaviour
             isCanMoveLeft = tile.isCanMoveLeft;
             isCanMoveDown = tile.isCanMoveDown;
         }
+        if(other.CompareTag("Smoke")){
+            smoke = other.gameObject;
+            smoke.GetComponentInParent<Grid>().destroySmoke();
+        }
         
     }
+
 }
