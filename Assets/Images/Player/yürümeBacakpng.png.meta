@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14674cd4b023d704d8480ff058cbb84c
+guid: e115acca4597eea4e80a70be578cabf5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "y\xFCr\xFCme-Sheet_0"
+      name: "y\xFCr\xFCmeBacakpng_0"
       rect:
         serializedVersion: 2
-        x: 9
-        y: 3
-        width: 12
-        height: 27
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5a52c2a68323d445ad1031a0fe58421
-      internalID: -1128222320
+      spriteID: b8b424e6392533d4c8b80f42d058651d
+      internalID: -1624733075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "y\xFCr\xFCme-Sheet_1"
+      name: "y\xFCr\xFCmeBacakpng_1"
       rect:
         serializedVersion: 2
-        x: 41
-        y: 3
-        width: 12
-        height: 27
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfc7ed413077c8449a25bed1b301b564
-      internalID: 2033624985
+      spriteID: b30589d97a5743f44b27d2a66839906a
+      internalID: 168980570
       vertices: []
       indices: 
       edges: []
@@ -157,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "y\xFCr\xFCme-Sheet_1": 2033624985
-      "y\xFCr\xFCme-Sheet_0": -1128222320
+      "y\xFCr\xFCmeBacakpng_0": -1624733075
+      "y\xFCr\xFCmeBacakpng_1": 168980570
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
