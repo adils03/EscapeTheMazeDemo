@@ -9,6 +9,7 @@ TagManager:
   - Tile
   - Grid
   - Smoke
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,8 @@ public class PlayerFight : MonoBehaviour
     [SerializeField] float speed=5f;
     [SerializeField] float shootDelay;
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRendererLeg;
+    private SpriteRenderer spriteRendererBody;
     private Animator bacakAnim;
     private Animator gövdeAnim;
     public GameObject gövde;
@@ -14,12 +16,17 @@ public class PlayerFight : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     private bool canFire=true;
+    private Vector3 forcedirection;
+    private float xRange=5.25f;
+    private float yRange=2.05f;
 
     private Vector2 moveDirection;
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         bacakAnim=bacak.gameObject.GetComponent<Animator>();
         gövdeAnim=gövde.gameObject.GetComponent<Animator>();
+        spriteRendererBody=transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+        spriteRendererLeg=transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -33,6 +40,7 @@ public class PlayerFight : MonoBehaviour
     }
     void FixedUpdate()
     {
+        keepBounds();
          movement();
     }
     void processUnits(){
@@ -40,10 +48,12 @@ public class PlayerFight : MonoBehaviour
        verticalInput = Input.GetAxisRaw("Vertical");
 
        if(horizontalInput<0&&canFire){
-        transform.rotation=new Quaternion(0,180,0,0);
+       spriteRendererBody.flipX=true;
+       spriteRendererLeg.flipX=true;
        }
        if(horizontalInput>0&&canFire){
-        transform.rotation=new Quaternion(0,0,0,0);
+       spriteRendererBody.flipX=false;
+       spriteRendererLeg.flipX=false;
        }
        moveDirection = new Vector2(horizontalInput,verticalInput).normalized;
 
@@ -59,6 +69,20 @@ public class PlayerFight : MonoBehaviour
             gövdeAnim.SetBool("isWalking",false);
         }
     }
+    void keepBounds(){
+        if(transform.position.x<-xRange){
+            transform.position = new Vector3(-xRange,transform.position.y,transform.position.z);
+        }
+        if(transform.position.x>xRange){
+            transform.position = new Vector3(xRange,transform.position.y,transform.position.z);
+        }
+        if(transform.position.y<-yRange){
+            transform.position = new Vector3(transform.position.x,-yRange,transform.position.z);
+        }
+        if(transform.position.y>yRange){
+            transform.position = new Vector3(transform.position.x,yRange,transform.position.z);
+        }
+    }
     void shot(){
         
         if(Input.GetMouseButtonDown(0)&&canFire){
@@ -72,4 +96,13 @@ public class PlayerFight : MonoBehaviour
         yield return new WaitForSeconds(shootDelay);
         canFire=true;
     }
+    private void OnTriggerEnter2D(Collider2D other) {
+         if(other.gameObject.tag=="Enemy"){
+        forcedirection = transform.position-other.transform.position;
+        forcedirection.Normalize(); 
+        Debug.Log("player");
+        transform.Translate(forcedirection/3,Space.Self);
+        }
+    }
+    
 }
