@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     [SerializeField] float speed;
+    public float damage;
+    private Vector3 lookDirection;
     private Rigidbody2D rb;
-    private Vector3 forcedirection;
+    private bool canMove=true;
     private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer=GetComponent<SpriteRenderer>();
+        player= GameObject.FindWithTag("Player");
     }
     void Start()
     {
@@ -22,28 +25,28 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(followPlayer());
+        StartCoroutine(followPlayer()); 
     }
 
     IEnumerator followPlayer(){
         yield return new WaitForSeconds(2f);
-        Vector3 lookDirection = (player.transform.position-transform.position);
+        lookDirection = (player.transform.position-transform.position);
+        if(Mathf.Abs(lookDirection.x)<0.01&&Mathf.Abs(lookDirection.y)<0.01){
+            canMove=false;
+        }
+        else{
+            canMove=true;
+        }
         lookDirection.Normalize();
-        forcedirection=lookDirection;
-        rb.MovePosition(transform.position+(lookDirection*Time.deltaTime*speed));
+        if(canMove){rb.MovePosition(transform.position+(lookDirection*Time.deltaTime*speed));}
         if(lookDirection.x<0){
         spriteRenderer.flipX=false;
         }
         if(lookDirection.x>0){
         spriteRenderer.flipX=true;
         }
+        
     }
-    //bakılacak
-   /* private void OnCollisionEnter2D(Collision2D other) {
-        if(other.collider.gameObject.tag=="Player"){
-            Debug.Log("player");
-            player.transform.Translate(forcedirection/2);
-        }
-    }*/
+   
     
 }

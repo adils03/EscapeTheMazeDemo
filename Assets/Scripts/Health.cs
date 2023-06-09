@@ -19,9 +19,6 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T)){
-            takeDamage(10);
-        }
         checkHealth();
         updateBar();
     }
@@ -32,15 +29,18 @@ public class Health : MonoBehaviour
         if(health<=0){
             Destroy(gameObject);
         }
+        if(health<healthAmount){
+            healthbar.SetActive(true);
+        }
     }
     void updateBar(){
         localScale.x=health/200;
         healthbar.transform.localScale=localScale;
     }
-    void takeDamage(int damage){
+    public void takeDamage(float damage){
         health-=damage;
     }
-    void heal(int heal){
+    public void heal(float heal){
         health+=heal;
     }
     
