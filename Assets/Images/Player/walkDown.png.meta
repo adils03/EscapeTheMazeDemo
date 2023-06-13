@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5f8aa612605a56048b9bf122d2499e80
+guid: 3faeb4a752bc38441ad2a9e6301893db
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "y\xFCr\xFCmeG\xF6vde_0"
+      name: walkDown_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5105f26ffccb1704086ab3917f70d65d
-      internalID: 941673318
+      spriteID: a99b90cc481f8644385c32c12cc5a052
+      internalID: 179655803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "y\xFCr\xFCmeG\xF6vde_1"
+      name: walkDown_1
       rect:
         serializedVersion: 2
         x: 32
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03c744448b06ddb438ddd8c981533daf
-      internalID: 255800594
+      spriteID: 526e1097ce4c66045ad058231449c52a
+      internalID: -1289495843
       vertices: []
       indices: 
       edges: []
@@ -157,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "y\xFCr\xFCmeG\xF6vde_1": 255800594
-      "y\xFCr\xFCmeG\xF6vde_0": 941673318
+      walkDown_1: -1289495843
+      walkDown_0: 179655803
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

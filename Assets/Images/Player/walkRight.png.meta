@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14674cd4b023d704d8480ff058cbb84c
+guid: 5f009f6d745666a45bf01beabed60b4d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "y\xFCr\xFCme-Sheet_0"
+      name: walkRight_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 3
-        width: 12
-        height: 27
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5a52c2a68323d445ad1031a0fe58421
-      internalID: -1128222320
+      spriteID: 9f6cbd7616681d845ae7f311ec446b81
+      internalID: 1369189843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "y\xFCr\xFCme-Sheet_1"
+      name: walkRight_1
       rect:
         serializedVersion: 2
-        x: 41
-        y: 3
-        width: 12
-        height: 27
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfc7ed413077c8449a25bed1b301b564
-      internalID: 2033624985
+      spriteID: 3a9fdb1b03d4ae2409978d99f0558fff
+      internalID: -1563893936
       vertices: []
       indices: 
       edges: []
@@ -157,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "y\xFCr\xFCme-Sheet_1": 2033624985
-      "y\xFCr\xFCme-Sheet_0": -1128222320
+      walkRight_0: 1369189843
+      walkRight_1: -1563893936
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

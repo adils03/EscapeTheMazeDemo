@@ -8,10 +8,6 @@ public class projectile : MonoBehaviour
     [SerializeField] float damageAmount;
     private float xRange=6f;
     private float yRange=3f;
-    void Start()
-    {
-        
-    }
     void Update()
     {
         shot();

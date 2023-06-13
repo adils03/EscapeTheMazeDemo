@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 428f6382db4c51b45ad3ebecb3fe6d8f
+guid: d2f27c92f4b43a548ae7d0ed9da5fd8a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pompali_0
+      name: pompaliDown_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c653690bb26b0f54dabf12483ee13f4f
-      internalID: -996427411
+      spriteID: 4687c9e7405420a419d6f8f502965665
+      internalID: -2026976531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pompali_1
+      name: pompaliDown_1
       rect:
         serializedVersion: 2
         x: 32
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e737e14a4b600443b2fe3b47adba92f
-      internalID: -908267765
+      spriteID: 465e8d5f38b5da047843ff18870d84e0
+      internalID: 606451652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pompali_2
+      name: pompaliDown_2
       rect:
         serializedVersion: 2
         x: 64
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38228d263dd1d6c44910deb62e544bf6
-      internalID: 1336200914
+      spriteID: 3a70934dfa035b443814b4e6c6bf72ed
+      internalID: 563562659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pompali_3
+      name: pompaliDown_3
       rect:
         serializedVersion: 2
         x: 96
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35f028012a5babd4d983d166e3d09b64
-      internalID: -1402794590
+      spriteID: afbfbf4f3d1468f4096bc32e9ac93df9
+      internalID: -1801778192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pompali_4
+      name: pompaliDown_4
       rect:
         serializedVersion: 2
         x: 128
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d8c324d5bdb2134e99d1ec5cf6fa528
-      internalID: -1143062725
+      spriteID: c0e24e85e7dd11844a5dbe333e09c37d
+      internalID: 639826597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pompali_5
+      name: pompaliDown_5
       rect:
         serializedVersion: 2
         x: 160
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 419d39ddceba2ca469e80646af3e7ddc
-      internalID: 457868860
+      spriteID: 239a24a69db0c0c44a0920ebed6706d2
+      internalID: 877324457
       vertices: []
       indices: 
       edges: []
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pompali_1: -908267765
-      pompali_3: -1402794590
-      pompali_0: -996427411
-      pompali_5: 457868860
-      pompali_4: -1143062725
-      pompali_2: 1336200914
+      pompaliDown_5: 877324457
+      pompaliDown_0: -2026976531
+      pompaliDown_1: 606451652
+      pompaliDown_3: -1801778192
+      pompaliDown_2: 563562659
+      pompaliDown_4: 639826597
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

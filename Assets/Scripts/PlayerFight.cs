@@ -7,16 +7,18 @@ public class PlayerFight : MonoBehaviour
     [SerializeField] float speed=5f;
     [SerializeField] float shootDelay;
     [SerializeField] GameObject projectile;
+    [SerializeField] Vector3 projectileOffsetRight;
+    [SerializeField] Vector3 projectileOffsetLeft;
+    [SerializeField] Vector3 projectileOffsetUp;
+    [SerializeField] Vector3 projectileOffsetDown;
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRendererLeg;
-    private SpriteRenderer spriteRendererBody;
-    private Animator bacakAnim;
-    private Animator gövdeAnim;
-    public GameObject gövde;
-    public GameObject bacak;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+    private Vector2 look;
     private float horizontalInput;
     private float verticalInput;
     private bool canFire=true;
+    private bool canMove=true;
     private bool canTakedamage=true;
     [SerializeField]private float damageRate;
     private float xRange=5.25f;
@@ -25,10 +27,8 @@ public class PlayerFight : MonoBehaviour
     private Vector2 moveDirection;
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
-        bacakAnim=bacak.gameObject.GetComponent<Animator>();
-        gövdeAnim=gövde.gameObject.GetComponent<Animator>();
-        spriteRendererBody=transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
-        spriteRendererLeg=transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();
+        animator=GetComponent<Animator>();
+        spriteRenderer=GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -36,7 +36,9 @@ public class PlayerFight : MonoBehaviour
     }
 
     void Update() {
-       processUnits();
+       if(canMove){
+        processUnits();
+       } 
        shot();
     }
     void FixedUpdate()
@@ -47,28 +49,23 @@ public class PlayerFight : MonoBehaviour
     void processUnits(){
        horizontalInput = Input.GetAxisRaw("Horizontal");
        verticalInput = Input.GetAxisRaw("Vertical");
-       float look = transform.position.x-Camera.main.ScreenToWorldPoint(Input.mousePosition).x; 
-       if(look>0&&canFire){
-       spriteRendererBody.flipX=true;
-       spriteRendererLeg.flipX=true;
-       }
-       if(look<0&&canFire){
-       spriteRendererBody.flipX=false;
-       spriteRendererLeg.flipX=false;
-       }
+       animator.SetFloat("speed",moveDirection.SqrMagnitude());
+       look= transform.position-Camera.main.ScreenToWorldPoint(Input.mousePosition);
        moveDirection = new Vector2(horizontalInput,verticalInput).normalized;
-
+       Debug.Log(moveDirection);
+       animator.SetFloat("horizontal",horizontalInput);
+       animator.SetFloat("vertical",verticalInput);
+        
     }
     void movement(){
-        rb.velocity = new Vector2(moveDirection.x*speed*Time.deltaTime,moveDirection.y*speed*Time.deltaTime);
-        if(horizontalInput!=0||verticalInput!=0){
-            bacakAnim.SetBool("isWalking",true);
-            gövdeAnim.SetBool("isWalking",true);
-        }
-        else{
-            bacakAnim.SetBool("isWalking",false);
-            gövdeAnim.SetBool("isWalking",false);
-        }
+            rb.velocity = new Vector2(moveDirection.x*speed*Time.deltaTime,moveDirection.y*speed*Time.deltaTime);
+            if(canMove==false){
+                rb.constraints=RigidbodyConstraints2D.FreezePosition|RigidbodyConstraints2D.FreezeRotation;
+            }
+            else{
+                rb.constraints=RigidbodyConstraints2D.None;
+                rb.constraints=RigidbodyConstraints2D.FreezeRotation;
+            }
     }
     void keepBounds(){
         if(transform.position.x<-xRange){
@@ -85,24 +82,32 @@ public class PlayerFight : MonoBehaviour
         }
     }
     void shot(){
-        
         if(Input.GetMouseButtonDown(0)&&canFire){
-        
         canFire=false;
-        gövdeAnim.Play("tüfekVuruş");
+        animator.SetBool("isShooting",true);
         StartCoroutine(shotDelay());
        }
     }
 
     IEnumerator shotDelay(){
+        canMove=false;
         yield return new WaitForSeconds(shootDelay);
-        if(spriteRendererBody.flipX==true){
-            Instantiate(projectile,transform.position+new Vector3(0.3f,0.05f,0),new Quaternion(0,0,270,0));
+        if(moveDirection.x==1||moveDirection.x==0&&moveDirection.y==0||moveDirection.x>0&&moveDirection.y>0||moveDirection.x>0&&moveDirection.y<0){
+            Instantiate(projectile,transform.position+projectileOffsetRight,Quaternion.Euler(new (0, 0, 0)));
         }
-        if(spriteRendererBody.flipX==false){
-            Instantiate(projectile,transform.position+new Vector3(0.3f,0.05f,0),Quaternion.identity);
+        else if(moveDirection.x==-1||moveDirection.x<0&&moveDirection.y>0||moveDirection.x<0&&moveDirection.y<0){
+            Instantiate(projectile,transform.position+projectileOffsetLeft,Quaternion.Euler(new (0, 0, 180)));
         }
+        else if(moveDirection.y==1){
+            Instantiate(projectile,transform.position+projectileOffsetUp,Quaternion.Euler(new (0, 0, 90)));
+        }
+        else if(moveDirection.y==-1){
+            Instantiate(projectile,transform.position+projectileOffsetDown,Quaternion.Euler(new (0, 0, 270)));
+        }
+        animator.SetBool("isShooting",false);
         canFire=true;
+        canMove=true;
+        
     }
     private void OnTriggerStay2D(Collider2D other) {
         if(other.gameObject.tag=="Enemy"&&canTakedamage){
@@ -111,15 +116,11 @@ public class PlayerFight : MonoBehaviour
         }
     }
     
-    
-
     IEnumerator damageDelay(){
         canTakedamage=false;
-        spriteRendererBody.color=new Color32(255,192,192,255);
-        spriteRendererLeg.color=new Color32(255,192,192,255);
+        spriteRenderer.color=new Color32(255,192,192,255);
         yield return new WaitForSeconds(damageRate);
-        spriteRendererBody.color=new Color32(255,255,255,255);
-        spriteRendererLeg.color=new Color32(255,255,255,255);
+        spriteRenderer.color=new Color32(255,255,255,255);
         canTakedamage=true;
     }
 }

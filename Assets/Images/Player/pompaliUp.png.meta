@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c80e1829bc3f3f7499ab7e00d42e05f9
+guid: 66fd412d38e270348b32455e4d70173f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "t\xFCfekG\xF6vde_0"
+      name: pompaliUp_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ceb601eea9dae134f9214444e91e3a71
-      internalID: 1008117475
+      spriteID: c6ed7b5a58bcab7499fd9ee8b5aea471
+      internalID: 1494379735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "t\xFCfekG\xF6vde_1"
+      name: pompaliUp_1
       rect:
         serializedVersion: 2
         x: 32
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58edcdf11e746184d99079eacef20a79
-      internalID: 822459637
+      spriteID: 03396fbafef1f4a448a724329da91037
+      internalID: 318352242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "t\xFCfekG\xF6vde_2"
+      name: pompaliUp_2
       rect:
         serializedVersion: 2
         x: 64
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dc329f3bfb91f8459cb737ab346afd6
-      internalID: -142181820
+      spriteID: 3b1255e8b240f524b84a4c161b5cb9bb
+      internalID: 235167338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "t\xFCfekG\xF6vde_3"
+      name: pompaliUp_3
       rect:
         serializedVersion: 2
         x: 96
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b80c7921ea938f147ab3a4bb7e1c4e78
-      internalID: -928800283
+      spriteID: 7371ab283f458634c88b1d330a229218
+      internalID: -1954484380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "t\xFCfekG\xF6vde_4"
+      name: pompaliUp_4
       rect:
         serializedVersion: 2
         x: 128
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aac04ae353a54b140b522612783fa177
-      internalID: 2154968
+      spriteID: cf7668ca78c29984baadb19cd89285ac
+      internalID: -1756859111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "t\xFCfekG\xF6vde_5"
+      name: pompaliUp_5
       rect:
         serializedVersion: 2
         x: 160
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51aa1633712336f47a6b311d6016cbbc
-      internalID: -1313753389
+      spriteID: 929a07d6a96c3394782988a2beef89f8
+      internalID: 332748831
       vertices: []
       indices: 
       edges: []
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "t\xFCfekG\xF6vde_4": 2154968
-      "t\xFCfekG\xF6vde_5": -1313753389
-      "t\xFCfekG\xF6vde_0": 1008117475
-      "t\xFCfekG\xF6vde_1": 822459637
-      "t\xFCfekG\xF6vde_3": -928800283
-      "t\xFCfekG\xF6vde_2": -142181820
+      pompaliUp_3: -1954484380
+      pompaliUp_0: 1494379735
+      pompaliUp_4: -1756859111
+      pompaliUp_5: 332748831
+      pompaliUp_1: 318352242
+      pompaliUp_2: 235167338
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

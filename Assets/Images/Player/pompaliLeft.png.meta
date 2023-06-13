@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e115acca4597eea4e80a70be578cabf5
+guid: f137e54a60e7f724da01f07a2e29333e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "y\xFCr\xFCmeBacakpng_0"
+      name: pompaliLeft_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8b424e6392533d4c8b80f42d058651d
-      internalID: -1624733075
+      spriteID: cfbba884353277a45b03f30087746cbc
+      internalID: 1363098006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "y\xFCr\xFCmeBacakpng_1"
+      name: pompaliLeft_1
       rect:
         serializedVersion: 2
         x: 32
@@ -140,8 +140,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b30589d97a5743f44b27d2a66839906a
-      internalID: 168980570
+      spriteID: 1484c71576f9c2747a2f979be5e2f996
+      internalID: 1877249439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pompaliLeft_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e97b8985e9ca149a8772ab09e2ec00
+      internalID: 1221316464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pompaliLeft_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe3b00fa42678924c9868526bcf3a69a
+      internalID: -1326330032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pompaliLeft_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dbbebd96545a2c4691ea46da21f89b9
+      internalID: 998134633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pompaliLeft_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 315db8467bb7a5445ac846be1dd17311
+      internalID: -1918417040
       vertices: []
       indices: 
       edges: []
@@ -157,8 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "y\xFCr\xFCmeBacakpng_0": -1624733075
-      "y\xFCr\xFCmeBacakpng_1": 168980570
+      pompaliLeft_2: 1221316464
+      pompaliLeft_1: 1877249439
+      pompaliLeft_3: -1326330032
+      pompaliLeft_4: 998134633
+      pompaliLeft_0: 1363098006
+      pompaliLeft_5: -1918417040
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
