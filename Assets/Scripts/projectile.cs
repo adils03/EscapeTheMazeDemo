@@ -28,4 +28,9 @@ public class projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag=="Wall"){
+            Destroy(gameObject);
+        }
+    }
 }

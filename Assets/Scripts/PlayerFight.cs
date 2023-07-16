@@ -21,8 +21,6 @@ public class PlayerFight : MonoBehaviour
     private bool canMove=true;
     private bool canTakedamage=true;
     [SerializeField]private float damageRate;
-    private float xRange=5.25f;
-    private float yRange=2.05f;
 
     private Vector2 moveDirection;
     private void Awake() {
@@ -43,7 +41,6 @@ public class PlayerFight : MonoBehaviour
     }
     void FixedUpdate()
     {
-        keepBounds();
         movement();
     }
     void processUnits(){
@@ -58,7 +55,7 @@ public class PlayerFight : MonoBehaviour
         
     }
     void movement(){
-            rb.velocity = new Vector2(moveDirection.x*speed*Time.deltaTime,moveDirection.y*speed*Time.deltaTime);
+            rb.velocity = new Vector2(moveDirection.x*speed*Time.deltaTime,moveDirection.y*speed*Time.fixedDeltaTime);
             if(canMove==false){
                 rb.constraints=RigidbodyConstraints2D.FreezePosition|RigidbodyConstraints2D.FreezeRotation;
             }
@@ -66,20 +63,6 @@ public class PlayerFight : MonoBehaviour
                 rb.constraints=RigidbodyConstraints2D.None;
                 rb.constraints=RigidbodyConstraints2D.FreezeRotation;
             }
-    }
-    void keepBounds(){
-        if(transform.position.x<-xRange){
-            transform.position = new Vector3(-xRange,transform.position.y,transform.position.z);
-        }
-        if(transform.position.x>xRange){
-            transform.position = new Vector3(xRange,transform.position.y,transform.position.z);
-        }
-        if(transform.position.y<-yRange){
-            transform.position = new Vector3(transform.position.x,-yRange,transform.position.z);
-        }
-        if(transform.position.y>yRange){
-            transform.position = new Vector3(transform.position.x,yRange,transform.position.z);
-        }
     }
     void shot(){
         if(Input.GetMouseButtonDown(0)&&canFire){

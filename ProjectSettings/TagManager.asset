@@ -10,6 +10,7 @@ TagManager:
   - Grid
   - Smoke
   - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX
