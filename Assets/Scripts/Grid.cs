@@ -5,9 +5,20 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     [SerializeField] GameObject[] smokes;
+    [SerializeField] private int sceneToBeLoaded=0;
+    [SerializeField] GameObject[] enemiesToBeSpawned;
+    [SerializeField]private bool hasEnemy=false;
+    private GameManager gameManager;
+    
+    private void Awake() {
+        gameManager=GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
     void Start()
     {
         smokes[0].SetActive(true);
+        if(gameManager.passedGrids.Contains(gameObject.transform.position)){
+            destroySmoke();
+        }
     }
 
 
@@ -16,6 +27,9 @@ public class Grid : MonoBehaviour
             for (int i = 0; i < smokes.Length; i++)
             {
                 smokes[i].GetComponent<Animation>().Play("smoke");
+                if(!gameManager.passedGrids.Contains(gameObject.transform.position)){
+                    gameManager.passedGrids.Add(gameObject.transform.position);
+                }
             }
             StartCoroutine(destroySmokes());
         }
@@ -27,6 +41,9 @@ public class Grid : MonoBehaviour
             {
                 Destroy(smokes[i]);
             }
+        if(sceneToBeLoaded!=0&&hasEnemy){
+            SceneController.LoadScene(sceneToBeLoaded);
+        }
     }
     
 }

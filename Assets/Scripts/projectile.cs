@@ -6,12 +6,12 @@ public class projectile : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float damageAmount;
-    private float xRange=6f;
-    private float yRange=3f;
+    private float xRange=10f;
+    private float yRange=10f;
     void Update()
     {
         shot();
-        keepBounds();
+       keepBounds();
     }
 
     void shot() {
@@ -30,6 +30,7 @@ public class projectile : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag=="Wall"){
+            Debug.Log("aaa");
             Destroy(gameObject);
         }
     }

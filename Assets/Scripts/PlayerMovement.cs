@@ -14,14 +14,22 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]public bool isCanMoveLeft=false;
     [HideInInspector]public bool isCanMoveDown=false;
     private float timeToMove=0.2f;
-    // Start is called before the first frame update
+    private GameManager gameManager;
+    
+    private void Awake() {
+        gameManager=GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
     void Start()
     {
+        transform.position=gameManager.playerPosition;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(Input.GetKey(KeyCode.E)){
+            SceneController.LoadScene(2);
+        }
        movement();
     }
 

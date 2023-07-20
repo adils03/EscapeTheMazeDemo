@@ -38,6 +38,9 @@ public class PlayerFight : MonoBehaviour
         processUnits();
        } 
        shot();
+       if(Input.GetMouseButton(2)){
+        SceneController.LoadScene(1);
+       }
     }
     void FixedUpdate()
     {
@@ -49,7 +52,6 @@ public class PlayerFight : MonoBehaviour
        animator.SetFloat("speed",moveDirection.SqrMagnitude());
        look= transform.position-Camera.main.ScreenToWorldPoint(Input.mousePosition);
        moveDirection = new Vector2(horizontalInput,verticalInput).normalized;
-       Debug.Log(moveDirection);
        animator.SetFloat("horizontal",horizontalInput);
        animator.SetFloat("vertical",verticalInput);
         
@@ -95,15 +97,7 @@ public class PlayerFight : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other) {
         if(other.gameObject.tag=="Enemy"&&canTakedamage){
         GetComponent<Health>().takeDamage(other.GetComponent<Enemy>().damage); 
-        StartCoroutine(damageDelay());
         }
     }
     
-    IEnumerator damageDelay(){
-        canTakedamage=false;
-        spriteRenderer.color=new Color32(255,192,192,255);
-        yield return new WaitForSeconds(damageRate);
-        spriteRenderer.color=new Color32(255,255,255,255);
-        canTakedamage=true;
-    }
 }

@@ -7,8 +7,15 @@ public class Health : MonoBehaviour
     [SerializeField] float healthAmount;
     private Vector3 localScale;
     private GameObject healthbar;
+    private SpriteRenderer spriteRenderer;
+    private bool canTakeDamage=true;
+    [SerializeField]private Color32 color;
+    [SerializeField]private float damageRate;
     private float health;
     // Start is called before the first frame update
+    private void Awake() {
+        spriteRenderer=GetComponentInParent<SpriteRenderer>();
+    }
     void Start()
     {
         health=healthAmount;
@@ -38,10 +45,20 @@ public class Health : MonoBehaviour
         healthbar.transform.localScale=localScale;
     }
     public void takeDamage(float damage){
-        health-=damage;
+        if(canTakeDamage){
+            health-=damage;
+            StartCoroutine(damageIndic());
+        }
+        
     }
     public void heal(float heal){
         health+=heal;
     }
-    
+    IEnumerator damageIndic(){
+        canTakeDamage=false;
+        spriteRenderer.color=color;
+        yield return new WaitForSeconds(damageRate);
+        spriteRenderer.color=new Color32(255,255,255,255);
+        canTakeDamage=true;
+    }
 }

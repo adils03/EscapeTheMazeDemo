@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RestScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MazeScene.unity
+    guid: 0c6e9667e7fd3f443a68c974c04b9eb7
+  - enabled: 1
+    path: Assets/Scenes/FightScene.unity
+    guid: b5a5873dea0d68a48ab9e7801aa2c3aa
   m_configObjects: {}
