@@ -124,7 +124,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09da91f55640cbf46848829bcfc41d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 8618535013746598205, guid: 06ab67346e13bc24b84b9444d1bd7cd2, type: 3}
+  buttonSprite: {fileID: 0}
+  HasObstacle: 0
   isCanMoveUp: 0
   iscanMoveRight: 1
   isCanMoveLeft: 1
   isCanMoveDown: 1
+  isCanMoveUpObs: 0
+  iscanMoveRightObs: 0
+  isCanMoveLeftObs: 0
+  isCanMoveDownObs: 0

@@ -10,17 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee5ed887c6249a84995be6f05f72d709, type: 3}
-  m_Name: Water
+  m_Name: IronKey
   m_EditorClassIdentifier: 
-  actionType: 1
+  actionType: 0
   itemType: 3
   range: {x: 5, y: 4}
-  stackable: 1
+  stackable: 0
   consumable: 0
-  image: {fileID: -533826273, guid: 12d074ed9b31ef645805fcf6c00f4789, type: 3}
-  foodAmount: 0
-  waterAmount: 5
-  healthAmount: 0
-  sanityAmount: 0
-  fireFuelAmount: 0
-  sleepAmount: 0
+  image: {fileID: 21300000, guid: 59597ed964fbeef44b40f032d892054e, type: 3}

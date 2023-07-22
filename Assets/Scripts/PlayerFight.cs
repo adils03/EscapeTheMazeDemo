@@ -94,10 +94,10 @@ public class PlayerFight : MonoBehaviour
         canMove=true;
         
     }
+    
     private void OnTriggerStay2D(Collider2D other) {
         if(other.gameObject.tag=="Enemy"&&canTakedamage){
         GetComponent<Health>().takeDamage(other.GetComponent<Enemy>().damage); 
         }
     }
-    
 }

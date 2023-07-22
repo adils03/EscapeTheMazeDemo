@@ -39,13 +39,18 @@ public class Enemy : MonoBehaviour
         }
         lookDirection.Normalize();
         if(canMove){rb.MovePosition(transform.position+(lookDirection*Time.deltaTime*speed));}
-        if(lookDirection.x<0){
+        if(lookDirection.x<0.1){
         spriteRenderer.flipX=false;
         }
-        if(lookDirection.x>0){
+        if(lookDirection.x>0.1){
         spriteRenderer.flipX=true;
         }
         
+    }
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.tag=="Enemy"){
+
+        }
     }
    
     

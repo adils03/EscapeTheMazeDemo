@@ -10,17 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee5ed887c6249a84995be6f05f72d709, type: 3}
-  m_Name: Gun
+  m_Name: Shovel
   m_EditorClassIdentifier: 
   actionType: 0
-  itemType: 7
+  itemType: 2
   range: {x: 5, y: 4}
-  stackable: 0
+  stackable: 1
   consumable: 0
-  image: {fileID: 21300000, guid: 481bef8a7cadf3c46b2d5d832b5f1dfb, type: 3}
-  foodAmount: 0
-  waterAmount: 0
-  healthAmount: 0
-  sanityAmount: 0
-  fireFuelAmount: 0
-  sleepAmount: 10
+  image: {fileID: 21300000, guid: 7377f7f9eee567e47bb79a3980855d57, type: 3}

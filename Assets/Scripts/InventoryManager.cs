@@ -7,6 +7,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager instance;
     public InventorySlot[] InventorySlots;
     public GameObject inventoryItemPrefab;
+    public Item item1;
     public int maxStackedItems=4;
     private void Awake() {
         if (instance != null)
@@ -51,7 +52,19 @@ public class InventoryManager : MonoBehaviour
         DraggableItem draggableItem = newItemGo.GetComponent<DraggableItem>();
         draggableItem.InitialiseItem(item);
     }
-
+    public bool CheckItemInSlots(Item item)
+{
+    for (int i = 0; i < InventorySlots.Length; i++)
+    {
+        InventorySlot slot = InventorySlots[i];
+        DraggableItem itemInSlot = slot.GetComponentInChildren<DraggableItem>();
+        if (itemInSlot != null && itemInSlot.item == item)
+        {
+            return true;
+        }
+    }
+    return false;
+    }
 
 
 }

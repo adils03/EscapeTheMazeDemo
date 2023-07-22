@@ -17,27 +17,16 @@ public bool consumable;
 
 [Header("Both")]
 public Sprite image;
-[Header("Consumable Item Amount")]
-public int foodAmount;
-public int waterAmount;
-public int healthAmount;
-public int sanityAmount;
-public int fireFuelAmount;
-public int sleepAmount;
 }
 public enum itemType{
-    Tool,
-    Weapon,
-    Food,
-    Water,
-    Health,
-    Sanity,
-    FireFuel,
-    Sleep
+    Axe,
+    Pickaxe,
+    Shovel,
+    IronKey,
+    Heart,
+    GoldenKey
 
 }
 public enum ActionType{
     Attack,
-    Use,
-    Consume
 }

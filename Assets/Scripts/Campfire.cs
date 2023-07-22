@@ -16,7 +16,6 @@ public class Campfire : MonoBehaviour , IDropHandler
         if(itemDrop.itemType.ToString()=="FireFuel"){
             Destroy(droppingItem);
             Debug.Log("wood");
-            barManager.GetComponent<BarManager>().addFire(itemDrop.count*itemDrop.fireFuelAmount);
         }
     }
 }

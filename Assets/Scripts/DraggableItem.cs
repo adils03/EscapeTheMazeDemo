@@ -14,28 +14,15 @@ public class DraggableItem : MonoBehaviour ,IBeginDragHandler ,IDragHandler,IEnd
     [HideInInspector]public Item item;
     [HideInInspector]public int count=1;
     [HideInInspector]public Transform parentAfterDrag;
-    [HideInInspector]public bool consumable=false;
     //Variables of item
-    [HideInInspector]public string itemType;
-    [HideInInspector]public int foodAmount;
-    [HideInInspector]public int waterAmount;
-    [HideInInspector]public int healthAmount;
-    [HideInInspector]public int sanityAmount;
-    [HideInInspector]public int fireFuelAmount;
-    [HideInInspector]public int sleepAmount;
+    public string itemType;
+    
 
     //Initialise new item
     public void InitialiseItem(Item newItem){
         item = newItem;
         image.sprite = newItem.image;
-        consumable=newItem.consumable;
         itemType=newItem.itemType.ToString();
-        foodAmount=newItem.foodAmount;
-        waterAmount=newItem.waterAmount;
-        healthAmount=newItem.healthAmount;
-        sanityAmount=newItem.sanityAmount;
-        fireFuelAmount=newItem.fireFuelAmount;
-        sleepAmount=newItem.sleepAmount;
         Debug.Log(itemType);
         RefreshCount();
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,9 +16,11 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]public bool isCanMoveDown=false;
     private float timeToMove=0.2f;
     private GameManager gameManager;
+    private InventoryManager inventoryManager;
     
     private void Awake() {
         gameManager=GameObject.Find("GameManager").GetComponent<GameManager>();
+        inventoryManager=GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
     }
     void Start()
     {
@@ -76,6 +79,16 @@ public class PlayerMovement : MonoBehaviour
             iscanMoveRight = tile.iscanMoveRight;
             isCanMoveLeft = tile.isCanMoveLeft;
             isCanMoveDown = tile.isCanMoveDown;
+            if(tile.HasObstacle&&inventoryManager.CheckItemInSlots(tile.item)){
+                tile.button.GetComponent<Image>().sprite=tile.buttonSprite;
+                tile.button.SetActive(true);
+                gameManager.obstacle=tile.obstacle;
+            }
+            if(tile.HasObstacle==false){
+                if(tile.button!=null){
+                    tile.button.SetActive(false);
+                }
+            }
         }
         if(other.CompareTag("Smoke")){
             smoke = other.gameObject;
