@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour
     }
     public void destroyObstacles(){
         obstacle.GetComponent<Obstacle>().destroyObstacle();
+        GameObject.Find("PlayerMaze").GetComponent<PlayerMovement>().isCanMoveUp=GameObject.Find("PlayerMaze").GetComponent<PlayerMovement>().tileNow.isCanMoveUpObs;
+        GameObject.Find("PlayerMaze").GetComponent<PlayerMovement>().iscanMoveRight=GameObject.Find("PlayerMaze").GetComponent<PlayerMovement>().tileNow.iscanMoveRightObs;
+        GameObject.Find("PlayerMaze").GetComponent<PlayerMovement>().isCanMoveLeft=GameObject.Find("PlayerMaze").GetComponent<PlayerMovement>().tileNow.isCanMoveLeftObs;
+        GameObject.Find("PlayerMaze").GetComponent<PlayerMovement>().isCanMoveDown=GameObject.Find("PlayerMaze").GetComponent<PlayerMovement>().tileNow.isCanMoveDownObs;
     }
 
 }

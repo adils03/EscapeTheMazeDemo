@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]public bool iscanMoveRight=false;
     [HideInInspector]public bool isCanMoveLeft=false;
     [HideInInspector]public bool isCanMoveDown=false;
+    public Tile tileNow;
     private float timeToMove=0.2f;
     private GameManager gameManager;
     private InventoryManager inventoryManager;
@@ -75,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Tile")){
             Tile tile = other.gameObject.GetComponent<Tile>();
+            tileNow=tile;
             isCanMoveUp = tile.isCanMoveUp;
             iscanMoveRight = tile.iscanMoveRight;
             isCanMoveLeft = tile.isCanMoveLeft;

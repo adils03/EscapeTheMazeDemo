@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private GameObject player;
     [SerializeField] float speed;
+    [SerializeField] float waitTime;
     public float damage;
     private Vector3 lookDirection;
     private Rigidbody2D rb;
@@ -25,11 +26,14 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    
+    private void LateUpdate() {
         StartCoroutine(followPlayer()); 
     }
-
     IEnumerator followPlayer(){
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(waitTime);
         lookDirection = (player.transform.position-transform.position);
         if(Mathf.Abs(lookDirection.x)<0.01&&Mathf.Abs(lookDirection.y)<0.01){
             canMove=false;
@@ -46,11 +50,6 @@ public class Enemy : MonoBehaviour
         spriteRenderer.flipX=true;
         }
         
-    }
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag=="Enemy"){
-
-        }
     }
    
     

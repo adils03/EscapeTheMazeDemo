@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3274561274499324350}
   - component: {fileID: 3274561274499324344}
   - component: {fileID: 3274561274499324347}
-  - component: {fileID: -4661922941788011812}
+  - component: {fileID: -353508580462335580}
   m_Layer: 0
-  m_Name: slime
+  m_Name: littleSlime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 3274561274499324323}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3274561274324222055}
   m_Father: {fileID: 0}
@@ -169,12 +169,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c392066b28fc7de499b03ecc8323eb3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 100
+  healthAmount: 60
   color:
     serializedVersion: 2
     rgba: 2818572287
   damageRate: 0.3
---- !u!114 &-4661922941788011812
+--- !u!114 &-353508580462335580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,18 +183,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3274561274499324323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9be4cba91a8035d479d498d888e4a44d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c2484d8ef317a54d982567fc86649ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  waitTime: 1.5
-  damage: 10
-  onDestroySpawn: {fileID: 3274561274499324323, guid: a54cf2003c833a94b8c2003de6742c0e, type: 3}
-  offsets:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  position: {x: 0, y: 0, z: 0}
+  speed: 10
+  waitTime: 1
+  damage: 6
 --- !u!1001 &3298598704404947687
 PrefabInstance:
   m_ObjectHideFlags: 0
