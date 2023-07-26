@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     private bool canMove=true;
     private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
-    private void Awake() {
+    public void Awake() {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer=GetComponent<SpriteRenderer>();
         player= GameObject.FindWithTag("Player");
@@ -50,6 +50,9 @@ public class Enemy : MonoBehaviour
         spriteRenderer.flipX=true;
         }
         
+    }
+    public void setSpeed(float amount){
+        speed=amount;
     }
    
     

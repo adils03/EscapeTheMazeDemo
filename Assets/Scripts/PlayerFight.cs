@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PlayerFight : MonoBehaviour
 {
+    GameManager gameManager;
+    [SerializeField] Item tripleBullet;
+    [SerializeField] Item exBullet;
     [Header("Speed")]
     [SerializeField] float speed=5f;
     [SerializeField] float speedMultiplier=2f;
     [Header("Projectile")]
     [SerializeField] float shootDelay;
     [SerializeField] GameObject projectile;
+    [SerializeField] GameObject bigProjectile;
+    [SerializeField] GameObject smallProjectile;
     [SerializeField] Vector3 projectileOffsetRight;
     [SerializeField] Vector3 projectileOffsetLeft;
     [SerializeField] Vector3 projectileOffsetUp;
@@ -32,6 +37,8 @@ public class PlayerFight : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator=GetComponent<Animator>();
         spriteRenderer=GetComponent<SpriteRenderer>();
+        gameManager=GameObject.Find("GameManager").GetComponent<GameManager>();
+        
     }
     void Start()
     {
@@ -79,6 +86,9 @@ public class PlayerFight : MonoBehaviour
             }
     }
     void shot(){
+        if(gameManager.items.Contains(exBullet)){
+            projectile=bigProjectile;
+        }else{projectile=smallProjectile;}
         if(Input.GetKey(KeyCode.RightArrow)&&canFire){
         canFire=false;
         animator.SetBool("isShooting",true);
@@ -105,19 +115,35 @@ public class PlayerFight : MonoBehaviour
         canMove=false;
         if(number==0){
             Instantiate(projectile,transform.position+projectileOffsetRight,Quaternion.Euler(new (0, 0, 0)));
+            if(gameManager.items.Contains(tripleBullet)){
+                Instantiate(projectile,transform.position+projectileOffsetRight+new Vector3(-0.1f,-0.2f,0),Quaternion.Euler(new (0, 0, 0)));
+                Instantiate(projectile,transform.position+projectileOffsetRight+new Vector3(-0.2f,0.2f,0),Quaternion.Euler(new (0, 0, 0)));
+            }
             animator.Play("pompaliRight");
         }
         else if(number==1){
             Instantiate(projectile,transform.position+projectileOffsetLeft,Quaternion.Euler(new (0, 0, 180)));
+            if(gameManager.items.Contains(tripleBullet)){
+                Instantiate(projectile,transform.position+projectileOffsetLeft+new Vector3(0.1f,-0.2f,0),Quaternion.Euler(new (0, 0, 180)));
+                Instantiate(projectile,transform.position+projectileOffsetLeft+new Vector3(0.2f,0.2f,0),Quaternion.Euler(new (0, 0, 180)));
+            }
             animator.Play("pompaliLeft");
         }
         else if(number==2){
             Instantiate(projectile,transform.position+projectileOffsetUp,Quaternion.Euler(new (0, 0, 90)));
+            if(gameManager.items.Contains(tripleBullet)){
+                Instantiate(projectile,transform.position+projectileOffsetUp+new Vector3(0.2f,-0.1f,0),Quaternion.Euler(new (0, 0, 90)));
+                Instantiate(projectile,transform.position+projectileOffsetUp+new Vector3(-0.2f,-0.2f,0),Quaternion.Euler(new (0, 0, 90)));
+            }
             animator.Play("pompaliUp");
 
         }
         else if(number==3){
             Instantiate(projectile,transform.position+projectileOffsetDown,Quaternion.Euler(new (0, 0, 270)));
+            if(gameManager.items.Contains(tripleBullet)){
+                Instantiate(projectile,transform.position+projectileOffsetDown+new Vector3(-0.2f,0.1f,0),Quaternion.Euler(new (0, 0, 270)));
+                Instantiate(projectile,transform.position+projectileOffsetDown+new Vector3(0.2f,0.2f,0),Quaternion.Euler(new (0, 0, 270)));
+            }
             animator.Play("pompaliDown");
         }
         animator.SetBool("isShooting",false);

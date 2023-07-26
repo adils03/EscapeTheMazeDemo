@@ -1962,6 +1962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c052b80bd68614e90098857ef9a92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: []
 --- !u!4 &725595376
 Transform:
   m_ObjectHideFlags: 0
@@ -2165,10 +2166,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db08cc0c9bfcdb344943a10e2b3d6459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tripleBullet: {fileID: 11400000, guid: 3de1bbfe399f6814d95dc63b3b63ef10, type: 2}
+  exBullet: {fileID: 11400000, guid: d442b5f4de2739a428ac18eed4cf4d86, type: 2}
   speed: 100
   speedMultiplier: 1.5
   shootDelay: 1
   projectile: {fileID: 2821167873404029459, guid: 1461db3c2be8f824d851f860007091bb, type: 3}
+  bigProjectile: {fileID: 2821167873404029459, guid: 022be7ed6839ab44dae3faa4e704f4b5, type: 3}
+  smallProjectile: {fileID: 2821167873404029459, guid: 1461db3c2be8f824d851f860007091bb, type: 3}
   projectileOffsetRight: {x: 0.4, y: 0.045, z: 0}
   projectileOffsetLeft: {x: -0.4, y: 0.045, z: 0}
   projectileOffsetUp: {x: 0, y: 0.2, z: 0}
@@ -2214,6 +2219,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 3563415037
   damageRate: 2
+  damageTakeTime: 2
 --- !u!61 &859706983
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -47,6 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokes:
   - {fileID: 8208444815064686656}
+  sceneToBeLoaded: 0
+  enemiesToBeSpawned: []
+  enemiesToBeSpawnedLocs: []
+  hasEnemy: 0
+  skull: {fileID: 1437785597427385322, guid: dc0e2bb477378d24b8e32871e08f78d5, type: 3}
 --- !u!1 &8208444815064686656
 GameObject:
   m_ObjectHideFlags: 0

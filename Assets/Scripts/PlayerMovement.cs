@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake() {
         gameManager=GameObject.Find("GameManager").GetComponent<GameManager>();
         inventoryManager=GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+        
     }
     void Start()
     {

@@ -24,7 +24,9 @@ public enum itemType{
     Shovel,
     IronKey,
     Heart,
-    GoldenKey
+    GoldenKey,
+    tripleBullet,
+    exBullet
 
 }
 public enum ActionType{

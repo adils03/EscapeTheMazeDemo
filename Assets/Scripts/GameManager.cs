@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private InventoryManager inventoryManager;
     public static GameManager Instance; 
+    public List<Item> items = new List<Item>();
     public GameObject obstacle;
     public Vector3 playerPosition;
     public List<Vector3> passedGrids;
+    public List<Vector3> enemyGrids;
+    public Vector3 gridNow;
     public GameObject[] enemiesToBeSpawned;
     public Vector3[] enemiesToBeSpawnedLocs;
     private void Awake()
@@ -20,6 +24,8 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        inventoryManager=GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+        
     }
     private void Update() {
         if(GameObject.Find("PlayerMaze")!=null){
@@ -37,6 +43,7 @@ public class GameManager : MonoBehaviour
             
         }
     }
+    
     public void destroyObstacles(){
         obstacle.GetComponent<Obstacle>().destroyObstacle();
         GameObject.Find("PlayerMaze").GetComponent<PlayerMovement>().isCanMoveUp=GameObject.Find("PlayerMaze").GetComponent<PlayerMovement>().tileNow.isCanMoveUpObs;

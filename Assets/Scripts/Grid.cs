@@ -9,6 +9,8 @@ public class Grid : MonoBehaviour
     [SerializeField] GameObject[] enemiesToBeSpawned;
     [SerializeField] Vector3[] enemiesToBeSpawnedLocs;
     [SerializeField]private bool hasEnemy=false;
+    [SerializeField]private GameObject skull;
+    private GameObject skull_;
     
     private GameManager gameManager;
     
@@ -17,9 +19,17 @@ public class Grid : MonoBehaviour
     }
     void Start()
     {
+        if(hasEnemy&&!gameManager.enemyGrids.Contains(gameObject.transform.position)){
+            skull_=Instantiate(skull,transform.position,Quaternion.identity);
+        }
         smokes[0].SetActive(true);
         if(gameManager.passedGrids.Contains(gameObject.transform.position)){
             destroySmoke();
+        }
+    }
+    private void Update() {
+        if(!hasEnemy){
+            Destroy(skull_);
         }
     }
 
@@ -45,7 +55,8 @@ public class Grid : MonoBehaviour
             {
                 Destroy(smokes[i]);
             }
-        if(hasEnemy){
+        if(hasEnemy&&!gameManager.enemyGrids.Contains(gameObject.transform.position)){
+            gameManager.gridNow=gameObject.transform.position;
             gameManager.enemiesToBeSpawned=enemiesToBeSpawned;
             gameManager.enemiesToBeSpawnedLocs=enemiesToBeSpawnedLocs;
             SceneController.LoadScene(sceneToBeLoaded);

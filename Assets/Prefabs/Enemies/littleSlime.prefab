@@ -173,7 +173,7 @@ MonoBehaviour:
   color:
     serializedVersion: 2
     rgba: 2818572287
-  damageRate: 0.3
+  damageRate: 0
 --- !u!114 &-353508580462335580
 MonoBehaviour:
   m_ObjectHideFlags: 0

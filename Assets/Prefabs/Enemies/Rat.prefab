@@ -188,7 +188,7 @@ MonoBehaviour:
   color:
     serializedVersion: 2
     rgba: 2818572287
-  damageRate: 0.3
+  damageRate: 0
 --- !u!1001 &8053099759258986179
 PrefabInstance:
   m_ObjectHideFlags: 0

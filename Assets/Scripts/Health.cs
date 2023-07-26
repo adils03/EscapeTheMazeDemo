@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     private bool canTakeDamage=true;
     [SerializeField]private Color32 color;
     [SerializeField]private float damageRate;
+    [SerializeField]private float damageTakeTime=0.3f;
     private float health;
     // Start is called before the first frame update
     private void Awake() {
@@ -48,6 +49,7 @@ public class Health : MonoBehaviour
         if(canTakeDamage){
             health-=damage;
             StartCoroutine(damageIndic());
+            StartCoroutine(damageTake());
         }
         
     }
@@ -56,9 +58,12 @@ public class Health : MonoBehaviour
     }
     IEnumerator damageIndic(){
         canTakeDamage=false;
-        spriteRenderer.color=color;
         yield return new WaitForSeconds(damageRate);
-        spriteRenderer.color=new Color32(255,255,255,255);
         canTakeDamage=true;
+    }
+    IEnumerator damageTake(){
+        spriteRenderer.color=color;
+        yield return new WaitForSeconds(damageTakeTime);
+        spriteRenderer.color=new Color32(255,255,255,255);
     }
 }
