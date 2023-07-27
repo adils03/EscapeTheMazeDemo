@@ -23,7 +23,6 @@ public class PlayerFight : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    private Vector2 look;
     private float horizontalInput;
     private float verticalInput;
     private bool canFire=true;
@@ -63,7 +62,6 @@ public class PlayerFight : MonoBehaviour
        horizontalInput = Input.GetAxisRaw("Horizontal");
        verticalInput = Input.GetAxisRaw("Vertical");
        animator.SetFloat("speed",moveDirection.SqrMagnitude());
-       look= transform.position-Camera.main.ScreenToWorldPoint(Input.mousePosition);
        moveDirection = new Vector2(horizontalInput,verticalInput).normalized;
        animator.SetFloat("horizontal",horizontalInput);
        animator.SetFloat("vertical",verticalInput);
