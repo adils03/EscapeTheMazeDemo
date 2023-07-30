@@ -8,20 +8,31 @@ public class Wizard : MonoBehaviour
 [SerializeField] float speed;
 [SerializeField] float moveCooldown;
 [SerializeField] GameObject[] points;
-[SerializeField] float throwFireBallCd;
 [SerializeField] GameObject fireball;
 [SerializeField] GameObject fireballPos;
 [SerializeField] GameObject fireBallPosFlip;
+[SerializeField] float throwFireBallCd;
+[SerializeField] float fireBallCooldown;
+[SerializeField] float forceAmount;
+[SerializeField] float shockWaveCd;
+[SerializeField] float shockWaveCooldown;
+[SerializeField] float shockWaveDamage;
+float lastFireball;
+float lastShockWave;
 private GameObject fireBallPosLoc;
 Animator animator;
 private bool canMove=true;
 private bool canThrowFireBall=true;
+private bool canShockWave=true;
 int point;
 float lastMove;
 Vector3 moveDirection = new Vector3();
 SpriteRenderer spriteRenderer;
 Rigidbody2D rb2d;
+[SerializeField] bool applyCameraShake;
+ShakeCamera cameraShake;
 private void Awake() {
+    cameraShake=Camera.main.GetComponent<ShakeCamera>();
     rb2d=GetComponent<Rigidbody2D>();
     spriteRenderer=GetComponent<SpriteRenderer>();
     animator=GetComponent<Animator>();
@@ -31,11 +42,8 @@ private void FixedUpdate() {
 }
 private void Update() {
     moveDirectionFind();
-    if(Input.GetKey(KeyCode.R)&&canThrowFireBall){
-        canThrowFireBall=false;
-        animator.SetBool("isWalking",false);
-        StartCoroutine(throwFireBall());
-    }
+    fireBallWitchCd();
+    shockWaveWithCd();
 }
 
 void moveDirectionFind(){
@@ -60,16 +68,55 @@ void move(){
             rb2d.constraints=RigidbodyConstraints2D.FreezeRotation;
         }
 }
-
+void fireBallWitchCd(){
+if(Time.time-lastFireball<fireBallCooldown){
+    return;
+}
+lastFireball=Time.time;
+if(canThrowFireBall){
+        StartCoroutine(throwFireBall());
+    }
+}
 IEnumerator throwFireBall(){
 canMove=false;
+canShockWave=false;
 Instantiate(fireball,fireBallPosLoc.transform.position,Quaternion.identity);
+canThrowFireBall=false;
 animator.SetTrigger("fireball");
 yield return new WaitForSeconds(throwFireBallCd);
 canMove=true;
+canShockWave=true;
 canThrowFireBall=true;
 animator.SetBool("isWalking",true);
 }
-
-
+void shockWaveWithCd(){
+if(Time.time-lastShockWave<shockWaveCooldown){
+    return;
+}
+lastShockWave=Time.time;
+if(canShockWave&&Vector3.Distance(player.transform.position,transform.position)<1.5f){
+    StartCoroutine(shockWave());
+}
+}
+IEnumerator shockWave(){
+    canThrowFireBall=false;
+    canMove=false;
+    player.GetComponent<PlayerFight>().canMove=false;
+    canShockWave=false;
+    animator.SetTrigger("shockWave");
+    yield return new WaitForSeconds(shockWaveCd);
+    ShakeCamera_();
+    player.transform.Translate((player.transform.position-transform.position)*Time.deltaTime*forceAmount);
+    player.GetComponent<Health>().takeDamage(shockWaveDamage);
+    canMove=true;
+    canShockWave=true;
+    animator.SetBool("isWalking",true);
+    canThrowFireBall=true;
+    player.GetComponent<PlayerFight>().canMove=true;
+}
+void ShakeCamera_(){
+    if(cameraShake!=null&&applyCameraShake){
+        cameraShake.Play();
+    }
+}
 }

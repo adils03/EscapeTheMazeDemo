@@ -8,6 +8,8 @@ public class fireball : MonoBehaviour
 [SerializeField]float damageAmount;
 private GameObject player;
 private Vector3 moveDirection;
+private float xRange=10f;
+private float yRange=10f;
 private void Awake() {
     player=GameObject.FindWithTag("Player");
 }
@@ -25,6 +27,11 @@ IEnumerator moveToPlayer(){
 private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")){
             other.gameObject.GetComponent<Health>().takeDamage(damageAmount);
+            Destroy(gameObject);
+        }
+    }
+    void keepBounds(){
+        if(transform.position.x>xRange||transform.position.x<-xRange||transform.position.y>yRange||transform.position.y<-yRange){
             Destroy(gameObject);
         }
     }

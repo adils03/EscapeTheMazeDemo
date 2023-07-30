@@ -30,10 +30,9 @@ public class Enemy : MonoBehaviour
     }
     
     private void LateUpdate() {
-        StartCoroutine(followPlayer()); 
+        followPlayer(); 
     }
-    IEnumerator followPlayer(){
-        yield return new WaitForSeconds(waitTime);
+    void followPlayer(){
         lookDirection = (player.transform.position-transform.position);
         if(Mathf.Abs(lookDirection.x)<0.01&&Mathf.Abs(lookDirection.y)<0.01){
             canMove=false;

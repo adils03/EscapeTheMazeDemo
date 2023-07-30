@@ -26,7 +26,7 @@ public class PlayerFight : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     private bool canFire=true;
-    private bool canMove=true;
+    public bool canMove=true;
     private bool canTakedamage=true;
     [Header("Bounds")]
     [SerializeField]private float boundX;
@@ -49,9 +49,6 @@ public class PlayerFight : MonoBehaviour
         processUnits();
        } 
        shot();
-       if(Input.GetMouseButton(2)){
-        SceneController.LoadScene(1);
-       }
        keepBounds();
     }
     void FixedUpdate()
@@ -71,7 +68,7 @@ public class PlayerFight : MonoBehaviour
             if(Input.GetKey(KeyCode.Space)){
                 rb.velocity = new Vector2(moveDirection.x*speed*speedMultiplier*Time.deltaTime,moveDirection.y*speed*speedMultiplier*Time.fixedDeltaTime);
                 animator.speed=1f;
-            }else{
+            }else if(canMove){
                 rb.velocity = new Vector2(moveDirection.x*speed*Time.deltaTime,moveDirection.y*speed*Time.fixedDeltaTime);
                 animator.speed=0.5f;
             }
@@ -172,24 +169,6 @@ public class PlayerFight : MonoBehaviour
         }
  
     }
-   /* IEnumerator shotDelay(){
-        canMove=false;
-        yield return new WaitForSeconds(shootDelay);
-        if(moveDirection.x==1||moveDirection.x==0&&moveDirection.y==0||moveDirection.x>0&&moveDirection.y>0||moveDirection.x>0&&moveDirection.y<0){
-            Instantiate(projectile,transform.position+projectileOffsetRight,Quaternion.Euler(new (0, 0, 0)));
-        }
-        else if(moveDirection.x==-1||moveDirection.x<0&&moveDirection.y>0||moveDirection.x<0&&moveDirection.y<0){
-            Instantiate(projectile,transform.position+projectileOffsetLeft,Quaternion.Euler(new (0, 0, 180)));
-        }
-        else if(moveDirection.y==1){
-            Instantiate(projectile,transform.position+projectileOffsetUp,Quaternion.Euler(new (0, 0, 90)));
-        }
-        else if(moveDirection.y==-1){
-            Instantiate(projectile,transform.position+projectileOffsetDown,Quaternion.Euler(new (0, 0, 270)));
-        }
-        animator.SetBool("isShooting",false);
-        canFire=true;
-        canMove=true;
-        
-    }*/
+
+    
 }
