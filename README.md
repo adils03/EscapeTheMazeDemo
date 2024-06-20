@@ -10,4 +10,4 @@ Can you escape the maze?
 ## Enemies 
 <img src="https://github.com/adils03/EscapeTheMazeDemo/blob/main/Assets/Images/Enemies/Rat/rat-Sheet.png"  width="250">
 <img src="https://github.com/adils03/EscapeTheMazeDemo/blob/main/Assets/Images/Enemies/Slime/slimeidle.png"  width="250">
-<img src="https://github.com/adils03/EscapeTheMazeDemo/blob/main/Assets/Images/Enemies/Wizard/wizardwalk.png"  width="250">
+<img src="https://github.com/adils03/EscapeTheMazeDemo/blob/main/Assets/Images/Enemies/Wizard/wizardwalk.png"  width="500">
