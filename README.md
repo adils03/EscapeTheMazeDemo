@@ -3,6 +3,7 @@
 Can you escape the maze?
 ## The Maze
 <img src="https://github.com/adils03/EscapeTheMazeDemo/blob/main/MAZE.png" alt="The Maze" width="500">
+
 ## Fight Scene
 <img src="https://github.com/adils03/EscapeTheMazeDemo/blob/main/mazeFight.png" alt="Fight Scene" width="500">
 
